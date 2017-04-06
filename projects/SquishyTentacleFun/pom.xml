@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.framey.lab.evil</groupId>
+	<artifactId>SquishyTentacleFun</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	
+	<name>Squishy Tentacle Fun</name>
+	<description>
+        These examples use the tentacle framework to do some really nasty things.
+    </description>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<compilerId>eclipse</compilerId>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.plexus</groupId>
+						<artifactId>plexus-compiler-eclipse</artifactId>
+						<version>2.8.1</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>de.framey.lab.evil</groupId>
+				<artifactId>EvilTentaclesOfDeath</artifactId>
+				<version>0.1.0-SNAPSHOT</version>
+				<executions>
+					<execution>
+						<id>Tentacle</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>summonCthulhu</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math3</artifactId>
+			<version>3.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>de.framey.lab.evil</groupId>
+			<artifactId>EvilTentaclesOfDeath</artifactId>
+			<version>0.1.0-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.8</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+</project>

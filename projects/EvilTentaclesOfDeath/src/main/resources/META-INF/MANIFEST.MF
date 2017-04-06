@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Premain-Class: de.framey.lab.evil.jump.integration.Agent
+Agent-Class: de.framey.lab.evil.jump.integration.Agent
+Can-Redefine-Classes: true
+Main-Class: de.framey.lab.evil.jump.integration.PostCompiler
