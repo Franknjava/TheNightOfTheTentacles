@@ -1,4 +1,4 @@
-package de.framey.lab.evil.squishytentaclefun.wikipedia;
+package de.framey.lab.evil.squishytentaclefun.util;
 
 import java.io.IOException;
 
@@ -11,8 +11,8 @@ public interface Basicified {
         System.out.print("\033[H\033[2J");
     }
     
-    default void PRINT(String text) {
-        System.out.println(text);
+    default void PRINT(String text, Object... args) {
+        System.out.println(String.format(text, args));
     }
     
     default char INPUT(String text) throws IOException {

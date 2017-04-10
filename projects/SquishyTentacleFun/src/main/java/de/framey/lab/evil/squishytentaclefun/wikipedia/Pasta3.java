@@ -1,6 +1,7 @@
 package de.framey.lab.evil.squishytentaclefun.wikipedia;
 
 import de.framey.lab.evil.eviltentaclesofdeath.Tentacle;
+import de.framey.lab.evil.squishytentaclefun.util.Basicified;
 
 public class Pasta3 implements Tentacle, Basicified {
 
@@ -23,7 +24,7 @@ public class Pasta3 implements Tentacle, Basicified {
 /* 20*/     if (ia == 5) {
 /* 30*/         for (int ib = 1; ib <= 10; ib++) {
 /* 40*/             PRINT("LOOP:" + ia + " SUB LOOP:" + ib);
-/* 50*/             if (ib == 8) GOTO(29);
+/* 50*/             if (ib == 8) GOTO(30);
 /* 60*/         }
 /* 70*/     }
 /* 80*/     PRINT("SUB LOOP:" + ia + " END");

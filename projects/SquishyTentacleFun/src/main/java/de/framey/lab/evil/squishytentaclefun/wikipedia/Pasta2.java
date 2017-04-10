@@ -3,6 +3,7 @@ package de.framey.lab.evil.squishytentaclefun.wikipedia;
 import java.io.IOException;
 
 import de.framey.lab.evil.eviltentaclesofdeath.Tentacle;
+import de.framey.lab.evil.squishytentaclefun.util.Basicified;
 
 public class Pasta2 implements Tentacle, Basicified {
 
@@ -26,11 +27,11 @@ public class Pasta2 implements Tentacle, Basicified {
 /* 20*/ i = 0;
 /* 30*/ i = i + 1;
 /* 40*/ PRINT(i + " squared = " + i * i);
-/* 50*/ if (i >= 10) GOTO(31);
-/* 60*/ GOTO(27);
+/* 50*/ if (i >= 10) GOTO(32);
+/* 60*/ GOTO(28);
 /* 70*/ PRINT("Program Fully Completed.");
 /* 80*/ sel$ = INPUT("Do it Again (j): ");
-/* 90*/ if (sel$ == 106) GOTO(25); // char 106 is 'j'
+/* 90*/ if (sel$ == 106) GOTO(26); // char 106 is 'j'
 /*100*/ return;
     }
 }
