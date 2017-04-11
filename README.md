@@ -21,11 +21,33 @@ Be warned fearless adventurer, you will see things beyond this point which may d
 
 That's it. Now you can start the examples from **SquishyTentacleFun**. All examples have a **main** method which takes no arguments. The following examples are available:
 
-**de.framey.lab.evil.cthulhu.helloworld.HelloWorld** Using a sinister formular to achieve you know which goal.
+* **de.framey.lab.evil.cthulhu.helloworld.HelloWorld** Using a sinister formular to achieve you know which goal.
 
-**de.framey.lab.evil.cthulhu.wikipedia.Pasta1**,
-**de.framey.lab.evil.cthulhu.wikipedia.Pasta2**,
-**de.framey.lab.evil.cthulhu.wikipedia.Pasta3**,
-**de.framey.lab.evil.cthulhu.wikipedia.Pasta4** Implementation of the Wikipedia examples for spaghetti code.
+* **de.framey.lab.evil.squishytentaclefun.wikipedia.Pasta1**,
+* **de.framey.lab.evil.squishytentaclefun.wikipedia.Pasta2**,
+* **de.framey.lab.evil.squishytentaclefun.wikipedia.Pasta3** Implementation of the Wikipedia examples for spaghetti code.
 
-**de.framey.lab.evil.cthulhu.travellinghenchman.TravellingHenchman** A nearly nondertimistic implementation of the well known problem.
+* **de.framey.lab.evil.cthulhu.travellinghenchman.TravellingHenchman** A (nearly) nondertimistic implementation of the well known problem.
+
+If you want to have fun on your own, it's as simple as this:
+
+1. Implement interface **de.framey.lab.evil.eviltentaclesofdeath.Tentacle**
+2. Use GOTO in your methods to slap your sqishy tentacles whereever you like
+3. Use the maven plugin, the postcompiler or the Java agent to compile or run (in case of agent) your code
+
+* For examples of tentacle usage see the examples mentioned above
+* For an usage example of the maven plugin see the pom.xml file of project SquishyTentacleFun
+
+### Caveats
+
+* Off course, it is NOT recommended to use this in production code. Except you're off for world domination by insane coding.
+* Currently the tentacle statements work only in "normal" methods. Especially they do not work in constructors and in static methods.
+* It is very likely that your code won't decompile anymore. Albeit in some cases it does in a surprisingly strange way.
+* You may get strange JVM error at runtime if you do really bad things. Like accessing variables of wrong type by skipping declarations.
+* With tentacles you can do things wich are not possible in Java by other means. Some of these are:
+    * Jump in and out of blocks. (e.g. right into a loop body or from one loop body to a different one)
+    * Jump to dynamic targets specified by variables.
+    * Skip variable declarations.
+* There are some things even tentacles cannot do:
+    * Jump to a target outside of a method. This is not possible due to the JVM specification.
+    * Therefore you cannot jump into or out of a Lambda expression. But you can use tentacles within it.
