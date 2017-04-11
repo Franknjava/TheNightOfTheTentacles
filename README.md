@@ -21,13 +21,13 @@ Be warned fearless adventurer, you will see things beyond this point which may d
 
 That's it. Now you can start the examples from **SquishyTentacleFun**. All examples have a **main** method which takes no arguments. The following examples are available:
 
-* **de.framey.lab.evil.cthulhu.helloworld.HelloWorld** Using a sinister formular to achieve you know which goal.
+**de.framey.lab.evil.cthulhu.helloworld.HelloWorld** Using a sinister formular to achieve you know which goal.
 
-* **de.framey.lab.evil.squishytentaclefun.wikipedia.Pasta1**,
-* **de.framey.lab.evil.squishytentaclefun.wikipedia.Pasta2**,
-* **de.framey.lab.evil.squishytentaclefun.wikipedia.Pasta3** Implementation of the Wikipedia examples for spaghetti code.
+**de.framey.lab.evil.squishytentaclefun.wikipedia.Pasta1**,
+**de.framey.lab.evil.squishytentaclefun.wikipedia.Pasta2**,
+**de.framey.lab.evil.squishytentaclefun.wikipedia.Pasta3** Implementation of the Wikipedia examples for spaghetti code.
 
-* **de.framey.lab.evil.cthulhu.travellinghenchman.TravellingHenchman** A (nearly) nondertimistic implementation of the well known problem.
+**de.framey.lab.evil.cthulhu.travellinghenchman.TravellingHenchman** A (nearly) nondertimistic implementation of the well known problem.
 
 If you want to have fun on your own, it's as simple as this:
 
