@@ -32,7 +32,7 @@ That's it. Now you can start the examples from **SquishyTentacleFun**. All examp
 If you want to have fun on your own, it's as simple as this:
 
 1. Implement interface **de.framey.lab.evil.eviltentaclesofdeath.Tentacle**
-2. Use GOTO in your methods to slap your sqishy tentacles whereever you like
+2. Use **GOTO** in your methods to slap your sqishy tentacles whereever you like
 3. Use the maven plugin, the postcompiler or the Java agent to compile or run (in case of agent) your code
 
 * For examples of tentacle usage see the examples mentioned above
