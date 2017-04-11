@@ -18,12 +18,12 @@ public class AmbiguousLocalVars implements Tentacle, Basicified {
         GOTO(24);
         do {
             int x = 42;
-            PRINT("%d: %d", LINE(), x++);
+            PRINT("%d: %d", LINE(), ++x);
         } while (j++ < 1);
         GOTO(27);
         int i = 666;
-        PRINT("%d: %d", LINE(), i++);
+        PRINT("%d: %d", LINE(), i);
         GOTO(21);
-        PRINT("%d: %d", LINE(), i++);
+        PRINT("%d: %d", LINE(), i);
     }
 }
