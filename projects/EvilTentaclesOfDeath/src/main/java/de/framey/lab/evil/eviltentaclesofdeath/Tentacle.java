@@ -61,4 +61,13 @@ public interface Tentacle {
     default int LINE() {
         throw new UnsupportedOperationException("Method should have been replaced by instrumentation");
     }
+
+    /**
+     * This method return the current method state at runtime.
+     *
+     * @return the current method state.
+     */
+    default Object[][] STATE() {
+        throw new UnsupportedOperationException("Method should have been replaced by instrumentation");
+    }
 }

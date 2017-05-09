@@ -18,6 +18,7 @@ import lombok.Getter;
 public enum Commands {
 
     LINE(new LineCommand()), //
+    STATE(new StateCommand()), //
     STATIC_LABEL(new StaticLabelCommand()), //
     DYNAMIC_LABEL(new DynamicLabelCommand()), //
     STATIC_LINE_NUMBER_GOTO(new StaticLineNumberGotoCommand()), //
