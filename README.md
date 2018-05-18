@@ -51,3 +51,12 @@ If you want to have fun on your own, it's as simple as this:
 * There are some things even tentacles cannot do:
     * Jump to a target outside of a method. This is not possible due to the JVM specification.
     * Therefore you cannot jump into or out of a Lambda expression. But you can use tentacles within it.
+* The project **SquishyTentacleFun** compiles very slowly (> 15 min.) with older 1.8 JDKs (e.g. 1.8.0_25). With latest 1.8 JDK it works fine.
+* The projects cannot currently be compiled with Java 10, because Lombok does not work properly with Java 10.
+
+### Running in an IDE
+
+To run and debug tentaclelized code from within an IDE your best of using the Java agent provided by **EvilTentaclesOfDeath**.
+
+* For InteliJ goto "Run -> Edit Configurations... -> Defaults -> Application" and add to "VM Options" option "-javaagent:$MAVEN_REPOSITORY$/de/framey/lab/evil/EvilTentaclesOfDeath/0.1.0-SNAPSHOT/EvilTentaclesOfDeath-0.1.0-SNAPSHOT.jar".
+* For Eclipse add entry "-javaagent:/Users/meyfarth/.m2/repository/de/framey/lab/evil/EvilTentaclesOfDeath/0.1.0-SNAPSHOT/EvilTentaclesOfDeath-0.1.0-SNAPSHOT.jar" to file "eclipse.ini"
