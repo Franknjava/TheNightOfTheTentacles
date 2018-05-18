@@ -36,7 +36,7 @@ public class PostCompiler {
      * directory {@link #walkFileTree(String)} will be called in a parallel stream.
      *
      * @param args
-     *            a list fo class files to cthulhufy
+     *            a list of class folders to cthulhufy
      * @throws Exception
      *             in the rare case Cthulhu gets angry
      */

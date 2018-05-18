@@ -23,8 +23,8 @@ import lombok.NoArgsConstructor;
 /**
  * This handles all of your tiny squishy tentacles and brings them to life.
  * <p>
- * The handler takes the bytes of a class and searches all methods for supported tentacle commands. Just to replace them witch something
- * different, something better, something to change the world forever, MUHAHAHAHA! To make the world a liitle bit more cthulhish and evil.
+ * The handler takes the bytes of a class and searches all methods for supported tentacle commands. Just to replace them with something
+ * different, something better, something to change the world forever, MUHAHAHAHA! To make the world a little bit more cthulhuish and evil.
  * </p>
  *
  * @author Frank Meyfarth
