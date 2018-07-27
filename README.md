@@ -1,4 +1,4 @@
-# TheNightOfTheTentacles
+# The Night Of The Tentacles
 This repository contains the java source code for my tech talk: Frank'n Java ... and the night of the tentacles.
 
 Basically there are two projects:
@@ -43,7 +43,7 @@ If you want to have fun on your own, it's as simple as this:
 * Off course, it is NOT recommended to use this in production code. Except you're off for world domination by insane coding.
 * Currently the tentacle statements work only in "normal" methods. Especially they do not work in constructors and in static methods.
 * It is very likely that your code won't decompile anymore. Albeit in some cases it does in a surprisingly strange way.
-* You may get strange JVM error at runtime if you do really bad things. Like accessing variables of wrong type by skipping declarations.
+* You may get strange JVM errors at runtime if you do really bad things. Like accessing variables of wrong type by skipping declarations.
 * With tentacles you can do things wich are not possible in Java by other means. Some of these are:
     * Jump in and out of blocks. (e.g. right into a loop body or from one loop body to a different one)
     * Jump to dynamic targets specified by variables.
@@ -56,7 +56,7 @@ If you want to have fun on your own, it's as simple as this:
 
 ### Running in an IDE
 
-To run and debug tentaclelized code from within an IDE your best of using the Java agent provided by **EvilTentaclesOfDeath**.
+To run and debug tentaclelized code from within an IDE you're best off using the Java agent provided by **EvilTentaclesOfDeath**.
 
 * For InteliJ goto "Run -> Edit Configurations... -> Defaults -> Application" and add to "VM Options" option "-javaagent:$MAVEN_REPOSITORY$/de/framey/lab/evil/EvilTentaclesOfDeath/0.1.0-SNAPSHOT/EvilTentaclesOfDeath-0.1.0-SNAPSHOT.jar".
 * For Eclipse add entry "-javaagent:/Users/meyfarth/.m2/repository/de/framey/lab/evil/EvilTentaclesOfDeath/0.1.0-SNAPSHOT/EvilTentaclesOfDeath-0.1.0-SNAPSHOT.jar" to file "eclipse.ini"
