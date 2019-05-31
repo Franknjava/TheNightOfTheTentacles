@@ -10,6 +10,7 @@ import org.objectweb.asm.tree.MethodNode;
 import org.objectweb.asm.tree.analysis.Analyzer;
 import org.objectweb.asm.tree.analysis.AnalyzerException;
 import org.objectweb.asm.tree.analysis.BasicInterpreter;
+import org.objectweb.asm.tree.analysis.BasicValue;
 import org.objectweb.asm.tree.analysis.Frame;
 
 /**
@@ -43,7 +44,7 @@ public class FrameTable {
      */
     public FrameTable(ClassNode cn, MethodNode mn) {
         try {
-            Analyzer a = new Analyzer(new BasicInterpreter());
+            Analyzer<BasicValue> a = new Analyzer<>(new BasicInterpreter());
             frames = a.analyze(cn.name, mn);
             for (int i = 1; i < frames.length - 1; i++) {
                 int ref = i - 1;

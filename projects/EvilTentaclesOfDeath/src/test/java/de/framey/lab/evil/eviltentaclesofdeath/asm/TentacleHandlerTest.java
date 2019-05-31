@@ -213,7 +213,7 @@ public class TentacleHandlerTest {
         Assert.assertEquals(1, ((LookupSwitchInsnNode) mn.instructions.get(10)).labels.size());
         Assert.assertEquals(((LabelNode) mn.instructions.get(18)).getLabel().toString(),
                 ((LookupSwitchInsnNode) mn.instructions.get(10)).dflt.getLabel().toString());
-        Assert.assertEquals("label".hashCode(), ((LookupSwitchInsnNode) mn.instructions.get(10)).keys.get(0));
+        Assert.assertEquals((int) "label".hashCode(), (int) ((LookupSwitchInsnNode) mn.instructions.get(10)).keys.get(0));
         Assert.assertEquals(((LabelNode) mn.instructions.get(11)).getLabel().toString(),
                 ((LabelNode) ((LookupSwitchInsnNode) mn.instructions.get(10)).labels.get(0)).getLabel().toString());
         Assert.assertEquals(Opcodes.ALOAD, mn.instructions.get(13).getOpcode());

@@ -1,23 +1,33 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.framey.lab.evil</groupId>
 	<artifactId>EvilTentaclesOfDeath</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
-
 	<name>Evil Tentacles Of Death</name>
 	<description>
-		The tentacle framework provides a postcompiler to weave 
-		tentacles (GOTO statements) into your Java code.
-	</description>
-
+        The tentacle framework provides a postcompiler to weave 
+        tentacles (GOTO statements) into your Java code.
+    </description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.ow2.asm</groupId>
-			<artifactId>asm-all</artifactId>
-			<version>5.1</version>
+			<artifactId>asm</artifactId>
+			<version>7.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm-tree</artifactId>
+			<version>7.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm-util</artifactId>
+			<version>7.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
@@ -39,7 +49,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.16.8</version>
+			<version>1.18.8</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
@@ -49,21 +59,27 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
+				<version>3.8.0</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<release>11</release>
+					<forceJavacCompilerUse>true</forceJavacCompilerUse>
+					<compilerArgs>
+						<arg>-Xlint:all,-processing,-cast,-serial,-try</arg>
+						<arg>-Xlint:deprecation</arg>
+					</compilerArgs>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-plugin-plugin</artifactId>
-				<version>3.5</version>
+				<version>3.6.0</version>
+				<configuration>
+					<skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

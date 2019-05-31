@@ -207,7 +207,7 @@ public class AsmUtil {
         try {
             ClassReader cr = new ClassReader(getClassAsStream(clazz));
             List<String> sgn = new ArrayList<>(1);
-            cr.accept(new ClassVisitor(Opcodes.ASM5) {
+            cr.accept(new ClassVisitor(Opcodes.ASM7) {
                 @Override
                 public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
                     if (method.equals(name)) {

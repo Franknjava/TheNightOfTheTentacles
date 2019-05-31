@@ -1,6 +1,9 @@
 package de.framey.lab.evil.eviltentaclesofdeath.integration;
 
+import java.lang.instrument.ClassFileTransformer;
+import java.lang.instrument.IllegalClassFormatException;
 import java.lang.instrument.Instrumentation;
+import java.security.ProtectionDomain;
 
 import de.framey.lab.evil.eviltentaclesofdeath.asm.TentacleHandler;
 
@@ -28,6 +31,27 @@ import de.framey.lab.evil.eviltentaclesofdeath.asm.TentacleHandler;
 public class Agent {
 
     /**
+     * Wrapper class needed since Java 9, because ClassFileTransformer is no functional interface anymore.
+     */
+    private static class TentacleHandlerWrapper implements ClassFileTransformer {
+
+        private static final TentacleHandlerWrapper INSTANCE = new TentacleHandlerWrapper();
+
+        @Override
+        public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain,
+                byte[] classfileBuffer) throws IllegalClassFormatException {
+            return TentacleHandler.transform(classfileBuffer);
+        }
+
+        @Override
+        public byte[] transform(Module module, ClassLoader loader, String className, Class<?> classBeingRedefined,
+                ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
+            return TentacleHandler.transform(classfileBuffer);
+        }
+
+    }
+
+    /**
      * Implementation of agentmain as described in {@link java.lang.instrument}. Simply adds delegation to
      * {@link java.lang.instrument.Instrumentation}. Actual class file transformatione is done by {@link TentacleHandler}.
      *
@@ -39,9 +63,7 @@ public class Agent {
      *             see {@link java.lang.instrument}
      */
     public static void agentmain(String agentArgs, Instrumentation instrumentation) throws Throwable {
-        instrumentation.addTransformer((loader, className, classBeingRedefined, protectionDomain, classfileBuffer) -> {
-            return TentacleHandler.transform(classfileBuffer);
-        });
+        instrumentation.addTransformer(TentacleHandlerWrapper.INSTANCE);
     }
 
     /**
@@ -56,8 +78,6 @@ public class Agent {
      *             see {@link java.lang.instrument}
      */
     public static void premain(String agentArgs, Instrumentation instrumentation) throws Throwable {
-        instrumentation.addTransformer((loader, className, classBeingRedefined, protectionDomain, classfileBuffer) -> {
-            return TentacleHandler.transform(classfileBuffer);
-        });
+        instrumentation.addTransformer(TentacleHandlerWrapper.INSTANCE);
     }
 }

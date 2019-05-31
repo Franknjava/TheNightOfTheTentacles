@@ -16,7 +16,7 @@ import de.framey.lab.evil.eviltentaclesofdeath.testhelper.Simple;
 
 public class AsmPrinterTest {
 
-    private static final String    SIMPLE_TEXT      = "// class version 52.0 (52)\n" +
+    private static final String    SIMPLE_TEXT      = "// class version 55.0 (55)\n" +
             "// access flags 0x21\n" +
             "public class de/framey/lab/evil/eviltentaclesofdeath/testhelper/Simple {\n" +
             "\n" +
