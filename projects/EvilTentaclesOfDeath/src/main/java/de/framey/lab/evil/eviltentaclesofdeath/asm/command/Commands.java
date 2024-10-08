@@ -26,13 +26,17 @@ public enum Commands {
     DYNAMIC_LINE_NUMBER_GOTO(new DynamicLineNumberGotoCommand()), //
     DYNAMIC_LABEL_GOTO(new DynamicLabelGotoCommand());
 
-    private Command command;
+    private final Command command;
 
     /**
      * Returns the command matching the given instruction type.
      *
-     * @param instructionType
+     * @param ain
      *            type of instruction defined by the FLG flags
+     * @param frameTable
+     *            the frame table to check on
+     * @param instructionStack
+     *            the current instruction stack to search in
      * @return the command or NULL, if non matches the given type
      */
     public static Command getCommand(AbstractInsnNode ain, FrameTable frameTable, Stack<AbstractInsnNode> instructionStack) {

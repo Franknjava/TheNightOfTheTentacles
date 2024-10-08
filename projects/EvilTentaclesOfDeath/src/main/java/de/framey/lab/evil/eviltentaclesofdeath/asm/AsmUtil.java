@@ -1,31 +1,17 @@
 package de.framey.lab.evil.eviltentaclesofdeath.asm;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import lombok.extern.java.Log;
+import org.objectweb.asm.*;
+import org.objectweb.asm.tree.*;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.Type;
-import org.objectweb.asm.tree.AbstractInsnNode;
-import org.objectweb.asm.tree.ClassNode;
-import org.objectweb.asm.tree.InsnList;
-import org.objectweb.asm.tree.InsnNode;
-import org.objectweb.asm.tree.IntInsnNode;
-import org.objectweb.asm.tree.LdcInsnNode;
-import org.objectweb.asm.tree.MethodInsnNode;
-import org.objectweb.asm.tree.MethodNode;
-import org.objectweb.asm.tree.TypeInsnNode;
-
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-import lombok.extern.java.Log;
 
 /**
  * This utility class provides convinience methods for common operations on Java bytecode.
@@ -47,7 +33,6 @@ public class AsmUtil {
      *            the signature description of the method
      * @return the mothod node or NULL, if no match was found
      */
-    @SuppressWarnings("unchecked")
     public static MethodNode getMethod(ClassNode cn, String name, String desc) {
         for (MethodNode mn : (List<MethodNode>) cn.methods) {
             if (mn.name.equals(name) && mn.desc.equals(desc)) {

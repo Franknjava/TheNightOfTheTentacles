@@ -10,6 +10,7 @@
         The tentacle framework provides a postcompiler to weave 
         tentacles (GOTO statements) into your Java code.
     </description>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -28,6 +29,7 @@
 		<maven-plugin-plugin.version>3.13.1</maven-plugin-plugin.version>
 		<maven-jar-plugin.version>3.4.1</maven-jar-plugin.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.ow2.asm</groupId>
@@ -88,6 +90,13 @@
 						<arg>-Xlint:all,-processing,-cast,-serial,-try</arg>
 						<arg>-Xlint:deprecation</arg>
 					</compilerArgs>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
+						</path>
+					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 			<plugin>

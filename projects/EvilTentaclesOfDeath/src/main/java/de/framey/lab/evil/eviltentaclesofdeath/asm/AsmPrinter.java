@@ -1,9 +1,6 @@
 package de.framey.lab.evil.eviltentaclesofdeath.asm;
 
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Function;
@@ -63,7 +60,7 @@ public class AsmPrinter {
      * @return the String representation of the method
      */
     public static String printMethodToString(MethodNode mn, Function<AbstractInsnNode, String> infoProvider) {
-        StringOutputStream out = new StringOutputStream();
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
         printMethod(mn, infoProvider, new PrintStream(out));
         return out.toString();
     }
@@ -81,7 +78,7 @@ public class AsmPrinter {
     @SuppressWarnings("unchecked")
     public static void printMethod(MethodNode mn, Function<AbstractInsnNode, String> infoProvider, PrintStream out) {
         out.println(mn.name + mn.desc);
-        for (Iterator<AbstractInsnNode> iterator = mn.instructions.iterator(); iterator.hasNext();) {
+        for(Iterator<AbstractInsnNode> iterator = mn.instructions.iterator(); iterator.hasNext();) {
             AbstractInsnNode ain = iterator.next();
             printInstruction(ain, infoProvider, out);
         }
@@ -111,7 +108,7 @@ public class AsmPrinter {
      * @return the String representation of the instructions
      */
     public static String printInstructionsToString(List<AbstractInsnNode> instructions, Function<AbstractInsnNode, String> infoProvider) {
-        StringOutputStream out = new StringOutputStream();
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
         printInstructions(instructions, infoProvider, new PrintStream(out));
         return out.toString();
     }
@@ -128,7 +125,7 @@ public class AsmPrinter {
      */
     public static void printInstructions(List<AbstractInsnNode> instructions, Function<AbstractInsnNode, String> infoProvider,
             PrintStream out) {
-        for (Iterator<AbstractInsnNode> iterator = instructions.iterator(); iterator.hasNext();) {
+        for(Iterator<AbstractInsnNode> iterator = instructions.iterator(); iterator.hasNext();) {
             AbstractInsnNode ain = iterator.next();
             printInstruction(ain, infoProvider, out);
         }
@@ -150,14 +147,14 @@ public class AsmPrinter {
     /**
      * Prints a single instruction to a String and returns it. The infoProvider can be used to prefix each line with additional information.
      *
-     * @param instructions
+     * @param ain
      *            the instruction to print
      * @param infoProvider
      *            can provide additional information to be printed for the instruction
      * @return the String representation of the instruction
      */
     public static String printInstructionToString(AbstractInsnNode ain, Function<AbstractInsnNode, String> infoProvider) {
-        StringOutputStream out = new StringOutputStream();
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
         printInstruction(ain, infoProvider, new PrintStream(out));
         return out.toString();
     }
@@ -165,14 +162,13 @@ public class AsmPrinter {
     /**
      * Prints a single instruction to a PrintStream. The infoProvider can be used to prefix each line with additional information.
      *
-     * @param instructions
+     * @param ain
      *            the instruction to print
      * @param infoProvider
      *            can provide additional information to be printed for the instruction
      * @param out
      *            the PrintStream to print to
      */
-    @SuppressWarnings("unchecked")
     public static void printInstruction(AbstractInsnNode ain, Function<AbstractInsnNode, String> infoProvider, PrintStream out) {
         out.print(infoProvider.apply(ain));
         out.print("  ");
@@ -253,7 +249,7 @@ public class AsmPrinter {
      * @return the String representation of the class
      */
     public static String printClassToString(byte[] code) {
-        StringOutputStream out = new StringOutputStream();
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
         printClass(code, new PrintStream(out));
         return out.toString();
     }
@@ -288,7 +284,7 @@ public class AsmPrinter {
      * @return the String representation of the class
      */
     public static String printClassToString(Class<?> clazz) throws IOException {
-        StringOutputStream out = new StringOutputStream();
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
         printClass(clazz, new PrintStream(out));
         return out.toString();
     }

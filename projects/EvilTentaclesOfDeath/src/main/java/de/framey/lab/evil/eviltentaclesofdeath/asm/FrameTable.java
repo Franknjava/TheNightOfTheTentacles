@@ -7,11 +7,7 @@ import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.MethodNode;
-import org.objectweb.asm.tree.analysis.Analyzer;
-import org.objectweb.asm.tree.analysis.AnalyzerException;
-import org.objectweb.asm.tree.analysis.BasicInterpreter;
-import org.objectweb.asm.tree.analysis.BasicValue;
-import org.objectweb.asm.tree.analysis.Frame;
+import org.objectweb.asm.tree.analysis.*;
 
 /**
  * For seperating the bytecode used for generation of the parameters for a method call from the method call itself, it is necessary to
@@ -25,14 +21,11 @@ import org.objectweb.asm.tree.analysis.Frame;
  */
 public class FrameTable {
 
-    /** The frames calculated by the {@link Analyzer}. */
-    private Frame[]                        frames;
-
     /** Maps any instruction of the method to the number of instructions used to build up its parameter stack. */
-    private Map<AbstractInsnNode, Integer> parameterSizes = new IdentityHashMap<>();
+    private final Map<AbstractInsnNode, Integer>                parameterSizes = new IdentityHashMap<>();
 
     /** Maps any instruction of the method to the frame calculated by the {@link Analyzer}. */
-    private Map<AbstractInsnNode, Frame>   insnFrames     = new IdentityHashMap<>();
+    private final Map<AbstractInsnNode, Frame<? extends Value>> insnFrames     = new IdentityHashMap<>();
 
     /**
      * Builds up the {@link FrameTable} for the given method of the given class.
@@ -45,7 +38,7 @@ public class FrameTable {
     public FrameTable(ClassNode cn, MethodNode mn) {
         try {
             Analyzer<BasicValue> a = new Analyzer<>(new BasicInterpreter());
-            frames = a.analyze(cn.name, mn);
+            Frame<? extends Value>[] frames = a.analyze(cn.name, mn);
             for (int i = 1; i < frames.length - 1; i++) {
                 int ref = i - 1;
                 for (int j = i - 1; (j > 0) && (frames[j].getStackSize() > frames[i].getStackSize()); j--) {
@@ -69,7 +62,7 @@ public class FrameTable {
      *            the instruction to get the {@link Frame} for
      * @return the {@link Frame} for this instruction
      */
-    public Frame getInstructionFrame(AbstractInsnNode ain) {
+    public Frame<? extends Value> getInstructionFrame(AbstractInsnNode ain) {
         return insnFrames.get(ain);
     }
 
