@@ -51,8 +51,7 @@ If you want to have fun on your own, it's as simple as this:
 * There are some things even tentacles cannot do:
     * Jump to a target outside of a method. This is not possible due to the JVM specification.
     * Therefore you cannot jump into or out of a Lambda expression. But you can use tentacles within it.
-* The project **SquishyTentacleFun** compiles very slowly (> 15 min.) with older 1.8 JDKs (e.g. 1.8.0_25). With latest 1.8 JDK it works fine.
-* The projects cannot currently be compiled with Java 10, because Lombok does not work properly with Java 10.
+* The the ASM version needs to match the JDK version and both projects need to be compiled with the same JDK version. The current versions match JDK 23.
 
 ### Running in an IDE
 
