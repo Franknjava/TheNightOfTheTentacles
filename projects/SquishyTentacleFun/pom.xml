@@ -53,7 +53,7 @@
 					<source>${maven-compiler-plugin.release}</source>
 					<target>${maven-compiler-plugin.release}</target>
 					<release>${maven-compiler-plugin.release}</release>
-					<forceJavacCompilerUse>true</forceJavacCompilerUse>
+					<forceLegacyJavacApi>true</forceLegacyJavacApi>
 					<compilerArgs>
 						<arg>-Xlint:all,-processing,-cast,-serial,-try</arg>
 						<arg>-Xlint:deprecation</arg>

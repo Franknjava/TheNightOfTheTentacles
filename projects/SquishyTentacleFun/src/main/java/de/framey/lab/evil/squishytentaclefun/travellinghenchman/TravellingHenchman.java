@@ -47,15 +47,19 @@ public class TravellingHenchman implements Tentacle {
      * Muhahahaha!!!
      */
     private void calculateRoutes() {
-        locationCount = 5;
+        locationCount = 9;
         
-        GOTO(any.oneOf("Lissabon", "Paris", "London", "Rom", "Erlangen"));
+        GOTO(any.oneOf("Lissabon", "London", "Paris", "Rom", "Berlin", "Wien", "Stockholm", "Warschau", "Athen"));
         
-        LABEL("Lissabon"); GOTO(any.oneOf("Paris"));
-        LABEL("Paris"   ); GOTO(any.oneOf("Lissabon", "Rom", "Erlangen"));
-        LABEL("London"  ); GOTO(any.oneOf("Lissabon", "Paris"));
-        LABEL("Rom"     ); GOTO(any.oneOf("Paris", "London"));
-        LABEL("Erlangen"); GOTO(any.oneOf("Lissabon", "London"));
+        LABEL("Lissabon" ); GOTO(any.oneOf("London", "Rom"));
+        LABEL("London"   ); GOTO(any.oneOf("Lissabon", "Paris"));
+        LABEL("Paris"    ); GOTO(any.oneOf("London", "Berlin"));
+        LABEL("Rom"      ); GOTO(any.oneOf("Lissabon", "Berlin", "Wien", "Athen"));
+        LABEL("Berlin"   ); GOTO(any.oneOf("Stockholm", "Warschau", "Wien", "Rom", "Paris"));
+        LABEL("Wien"     ); GOTO(any.oneOf("Berlin", "Rom"));
+        LABEL("Stockholm"); GOTO(any.oneOf("Berlin", "Warschau"));
+        LABEL("Warschau" ); GOTO(any.oneOf("Stockholm", "Berlin", "Athen"));
+        LABEL("Athen"    ); GOTO(any.oneOf("Rom", "Warschau"));
 
         LABEL("FINISHED"); printValidRoutes();
     }
